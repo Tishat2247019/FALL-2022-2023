@@ -1,0 +1,28 @@
+1. select (avg(sal)),max(sal),min(sal)
+from emp;
+
+2. select deptno,(avg(sal)),max(sal),min(sal)
+from emp
+group by(deptno);
+
+3. select job,(avg(sal)),max(sal),min(sal)
+from emp
+group by(job);
+
+4. select job,max(sal)
+from emp
+having max(sal)>2000
+group by(job);
+
+5. select job,max(sal)
+from emp
+where hiredate>'31-DEC-80'
+group by job;
+
+6. select count(*)
+from emp
+where sal>1200;
+
+7. select job,max(sal+nvl(comm,0))
+from emp
+group by job;

@@ -1,0 +1,64 @@
+1. select ename,sal
+from emp
+where sal> All(select sal
+from emp
+where Job='CLERK')
+order by sal desc;
+
+2. select ename,deptno,sal
+from emp
+where sal in(select sal
+from emp
+where comm is not null) and
+deptno in(select deptno
+from emp
+where comm is not null);
+
+3.
+
+4. select ename,sal
+from emp
+where sal=(select min(sal) 
+from emp
+where sal>(select min(sal) 
+from emp
+where sal>(select min(sal)
+from emp)));
+
+5. select ename,hiredate
+from emp
+where deptno=(select deptno
+from emp
+where ename='SMITH') and 
+ename <> 'SMITH';
+
+6. select ename
+from emp 
+where sal=(select min(sal) 
+from emp 
+where empno=any(select distinct mgr from emp)); 
+
+7. select *
+from emp
+where hiredate>(select hiredate
+from emp
+where ename='KING');
+
+8. select deptno
+from emp 
+group by deptno 
+having count(*)=(select max(count(*)) 
+from emp
+group by deptno);
+
+9. select deptno
+from emp
+where sal=(select max(sal)
+from emp);
+
+10. select job,sum(sal+nvl(comm,0))
+from emp
+group by job
+having sum(sal+NVL(comm,0))=(select max(sum(sal+NVL(comm,0)))
+from emp 
+group by job);

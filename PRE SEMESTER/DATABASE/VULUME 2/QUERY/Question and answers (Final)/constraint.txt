@@ -1,0 +1,57 @@
+
+
+  
+                                     
+                            
+                   Name : Sufian Tanzid
+
+
+
+                                      Previous Task
+
+1. create table department
+(deptid number(3) PRIMARY KEY,dept_name varchar(6) constraint department_dept_name_ck check(dept_name in('CSE','EEE','BBA','Eng','Ach')),budget number(6) default 0)
+
+2. create table course
+(crs_id number(4) PRIMARY KEY,crs_name varchar2(20) NOT NULL,deptid number(3) constraint course_deptid_fk references department(deptid))
+
+
+
+                                     Today Task(03-12-2020)
+
+
+1. create table uniStudent
+(
+s_id	number(7),
+s_name	varchar2(20),
+phone	number(11),
+address	varchar2(50),
+email	varchar2(30),
+credit_completed number(3),
+course_completed number(2),
+cgpa	number(3),
+deptno	number(5),
+gender	varchar2(6)
+)
+
+2.  alter table uniStudent modify (s_id number(7) constraint uniStudent_s_id_pk primary key);
+
+3. alter table uniStudent modify (s_name varchar2(20) not null)
+
+4. alter table uniStudent modify (email varchar2(30) unique)
+
+5. alter table uniStudent modify (deptno number(5) constraint uniStudent_deptno_fk references department(deptid))
+
+6. alter table uniStudent modify (gender varchar2(6) constraint uniStudent_gender_ck check(gender in('M','F')))
+
+7. alter table uniStudent disable constraint uniStudent_s_id_pk;
+
+8. alter table uniStudent drop constraint uniStudent_gender_ck
+
+9. alter table uniStudent enable constraint uniStudent_s_id_pk
+
+
+
+
+
+

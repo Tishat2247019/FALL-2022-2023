@@ -1,0 +1,20 @@
+
+                   Name : Sufian Tanzid
+
+
+
+
+1. select first_name, salary from employees where salary >7000
+2. select first_name, department_id from employees  where employee_id = 107
+3. select first_name,job_id,hire_date from employees where hire_date between '20-FEB-81' and '1-MAY-81'
+4. select first_name, department_number from employees where department_number in(10,30) order by first_name
+5. select first_name,hire_date from employees where (hire_date) like'%82'
+6. select first_name,job_id from employees where MANAGER_ID=NULL
+7. select first_name, salary, commission_pct from employees where commission_pct not null order by SAL DESC
+8. select first_name from employees where first_name like '__a%'
+9. select first_name from employees where first_name like'%Ls%'
+10. select manager_id,department_id,department_name FROM departments
+11. select e.first_name , e.last_name, e.department_id, d.department_name from employees e join departments d on e.department_id = d.department_id and e.department_id in (30) order by e.last_name
+13. select job_id, sum(salary), avg(salary), max(salary), min(salary) from employees group ny job_id
+14. select 'my location id is '||location_id||' and my city is'||city as query from locations
+15. select distinct manager_id from employees

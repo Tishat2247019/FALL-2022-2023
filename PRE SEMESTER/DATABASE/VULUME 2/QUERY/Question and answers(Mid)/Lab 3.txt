@@ -1,0 +1,26 @@
+1. select sysdate as "Date"
+from dual;
+
+2. select empno,ename,sal,(sal+sal*0.15) as "New Salary"
+from emp;
+
+3. select empno,ename,sal,((sal+sal*0.15)-sal) as "Increased"
+from emp;
+
+4. SELECT ename,hiredate,to_char(next_day(add_months(hiredate,6),'Monday'),'Day,"the" fmDdth "of" Month, YYYY"."') As "REVIEW" 
+FROM emp;
+
+5. SELECT ename, round(months_between(sysdate, hiredate)) As "MONTHS_WORKED" 
+from emp 
+order by months_between(sysdate, hiredate) desc;
+
+6. select ename||' earns '||sal||' monthly but wants '||3*sal As "Dream Salaries" 
+from emp;
+
+7. select initcap(ename) as "Name",
+length(ename) as "Length" 
+from emp
+where ename like 'J%' or ename like 'A%' or ename like 'M%';
+
+8. select ename,nvl(to_char(comm),'No Commission') as "COMM"
+from emp;

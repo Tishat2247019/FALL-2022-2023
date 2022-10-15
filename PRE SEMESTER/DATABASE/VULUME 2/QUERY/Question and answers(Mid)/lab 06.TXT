@@ -1,0 +1,44 @@
+1. ANS TO THE QUESTION NO
+ select sysdate "Date"
+from dual;
+
+2.ANS TO THE QUESTION NO
+ select empno, ename,sal,
+ROUND(sal*.15, 0)+sal "NEW SALARY"
+from emp;
+
+3.ANS TO THE QUESTION NO
+ select empno, ename,sal,
+ROUND(sal*.15, 0)+sal "NEW SALARY",
+(ROUND(sal*.15, 0)+sal)-sal "Increase"
+from emp;
+
+4.ANS TO THE QUESTION NO
+ select ename, hiredate,
+to_char(next_day(add_months(hiredate,6),'Monday'),'fmday, "the" Ddspth "of" month, yyyy') REVIEW
+from emp;
+
+5.ANS TO THE QUESTION NO
+ select ename, ROUND(months_between(sysdate,hiredate)) months_worked
+from emp
+order by months_worked;
+
+6. ANS TO THE QUESTION NO
+select ename || ' earns ' 
+|| TO_CHAR( sal , 'fm$99,999.00')
+||' monthly but wants '
+||TO_CHAR(sal * 3, 'fm$99,999.00') || '.' "Dream Salaries "
+from emp;
+
+
+7.ANS TO THE QUESTION NO
+ select  initcap(ename) " ename",
+length(ename) "length"
+from emp
+where ename like 'J%'
+or ename like 'A%'
+or ename like 'M%';
+
+8. ANS TO THE QUESTION NO
+select ename, NVL(TO_CHAR(comm), 'No Commision') comm
+from emp;

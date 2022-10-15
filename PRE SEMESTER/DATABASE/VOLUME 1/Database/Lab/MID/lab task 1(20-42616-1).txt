@@ -1,0 +1,49 @@
+1.Write a query  to  display   the   name,   department   number for all employees.
+
+select ENAME, DEPTNO
+from emp;
+
+2.Create a unique listing of all jobs that are in department 30.
+
+select *
+from emp;
+select distinct job
+from emp
+where deptno=30;
+
+3.Include the location of department 30 in the output.
+
+select *
+from emp;
+select distinct job
+from emp
+where deptno=30;
+
+select *
+from dept;
+
+select loc deptno
+from dept
+where deptno=30;
+
+4.Write a query to display the employee name, employee no of all
+ employees who earn a commission.
+
+select *
+from emp;
+select distinct job
+from emp
+where deptno=30;
+
+select *
+from dept;
+
+select loc deptno
+from dept
+where deptno=30;
+
+select ename,empno
+from emp
+where comm is not null;
+
+

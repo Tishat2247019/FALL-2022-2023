@@ -1,0 +1,84 @@
+#include<iostream>
+#include<stack>
+#include<stdlib.h>
+#define MAXSIZE 10
+using namespace std;
+int A[MAXSIZE];
+int top=-1;
+
+void push(int item){
+
+if(top==MAXSIZE-1)
+{
+
+   cout<<"Stack Overflow"<<endl;
+
+return;
+}
+else
+{
+	top++;
+	A[top]=item;
+	cout<<"succesfully inserted"<<endl;
+	
+}
+}
+
+void pop()
+{
+	int item;
+	if(top==-1)
+	{
+		cout<<"stack underflow"<<endl;
+		return;
+	}
+else
+{
+	
+	
+	item=A[top];
+	top--;
+	cout<<"The deleted element is:"<<A[top--]<<endl;
+}	
+	
+}
+void show()
+{ 
+	int i;
+	for(i=top;i>=0;i--)
+	{
+		cout<<A[i]<<" "<<endl;
+		
+	}
+}
+ int main ()
+ {
+ 
+ int x,ch;
+ while(1){
+ 
+ //char option;
+ cout<<"press 1 for push"<<endl;
+ cout<<"press 2 for pop"<<endl;
+ cout<<"press 3 for show"<<endl;
+ cout<<"Enter your choise"<<endl;
+ cin>>ch;
+ switch(ch)
+ {
+ 	case 1:cout<<"enter item:";
+ 	cin>>x;
+ 	push(x);
+	break;
+	case 2:pop();
+	break;
+ 	case 3:show();
+ 	break;
+ 	case 4:exit(0);
+ 	break;
+ 	default:cout<<"wrong input"<<endl;
+ }
+
+}
+ return 0;	
+ }
+ 

@@ -1,0 +1,80 @@
+table creation :: Create table <table name> (<col1><datatype>(<size>),<col2><datatype>(<size>));
+
+create table details (name varchar2(10) not null, age number(2))
+dropping the table :: drop table <tablename>
+drop table info
+
+describe info
+
+column adding :: Alter table <tablename> add(<new col> <datatype(size), <newcol> datatype(size));
+
+alter table info add (location varchar2(20), gender varchar2 (7))
+
+alter table info add (etc varchar2(20))
+
+describe details
+
+dropping a column :: Alter table <tablename> drop column <col>;
+
+alter table info drop column etc
+
+
+modifying :: Alter table <tablename> modify(<col><newdatatype>(<newsize>));
+
+alter table info modify (name varchar2 (20))
+
+
+rename :: Rename <oldtable> to <new table>;
+
+rename info to details
+describe details
+
+DML::
+select * from details
+insert :: insert into <tablename> (<col1name>, <col2name>, <col3name>)
+values(number, 'varchar2', 'varchar2')
+
+insert into details (name, age, location, gender) 
+values ('John', 20, 'USA', 'Male')
+
+insert into details (name, age, location, gender) 
+values ('Clark', 25, 'UK', 'Male')
+
+insert into details
+values ('Lois', 25, 'Canada', 'Female')
+
+truncate table details
+delete from details;
+delete from details where age = 25;
+updating column :: Update <tablename> set <col>=<exp>,<col>=<exp>;
+update details set location = 'USA'
+update details set location = 'Canada' where name = 'Lois'
+update details set location = 'UK' where name = 'Clark'
+
+Constraints::
+
+insert into details
+values ('', 27, 'Russia', 'Female')
+
+not null::  <col><datatype>(size)not null
+alter table details modify(name varchar2(20) not null)
+unique::  <col><datatype>(size)unique
+alter table details modify(location varchar2(20) unique)
+
+insert into details (name, age, location, gender) 
+values ('John', 20, 'USA', 'Male')
+
+truncate table details
+select * from details
+describe details
+
+
+
+
+
+
+
+
+
+
+
