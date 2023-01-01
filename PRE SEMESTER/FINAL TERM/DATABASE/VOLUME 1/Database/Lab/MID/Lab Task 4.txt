@@ -1,0 +1,48 @@
+ 01.Find average, maximum, minimum salary of the employees.
+
+ SELECT empno, ROUND(MAX(sal),0) "Maximum",
+ROUND(MIN(sal),0) "Minimum",
+ROUND(AVG(sal),0) "Average"
+FROM emp
+GROUP BY empno;
+
+ 02.Find average, maximum, minimum salary of the employees according to department number.
+  
+  SELECT deptno, ROUND(MAX(sal),0) "Maximum",
+ROUND(MIN(sal),0) "Minimum",
+ROUND(AVG(sal),0) "Average"
+FROM emp
+GROUP BY deptno;
+
+ 03.Find average, maximum, minimum salary of the employees according to job category.
+
+  SELECT job, ROUND(MAX(sal),0) "Maximum",
+ROUND(MIN(sal),0) "Minimum",
+ROUND(AVG(sal),0) "Average"
+FROM emp
+GROUP BY job;
+
+ 04.Find the name of lowest paid manager. (Manager is not Job).
+
+   SELECT ename, job, sal
+FROM emp
+WHERE sal = (SELECT MIN(sal)
+FROM emp);
+
+ 05.Find the location where maximum number of employee is located
+  select max(loc)
+from dept;
+
+ 06.Find out job group having highest amount of total salary. (Sal + comm)
+  
+   select max(sum(sal))
+from emp
+group by job;
+
+ 07.Suppose you need to know the name and department no. of the employee who earns the highest salary. Write a SQL query to return this information.
+  
+   select ename, deptno
+from emp
+Where sal=
+(select MAX(sal)
+from emp);

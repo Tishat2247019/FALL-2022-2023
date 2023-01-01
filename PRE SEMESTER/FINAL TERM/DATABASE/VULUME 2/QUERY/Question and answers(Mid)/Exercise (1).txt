@@ -1,0 +1,58 @@
+1. Find the highest paid employee of sales department
+select * 
+from emp 
+where sal in(select max(sal) 
+from emp 
+where deptno in(select deptno 
+from dept
+where dname='SALES'));
+
+2. List the emps with departmental information Whose Jobs are same as MILLER or Sal is more than ALLEN
+select *
+from emp
+where job=(select job from emp
+where ename='MILLER')
+or sal>(select sal from emp
+where ename='ALLEN')
+
+3. Find out the employees who are working in CHICAGO and DALLAS
+select e.ename,d.loc
+from emp e,dept d
+where d.loc in('CHICAGO','DALLAS')
+and e.deptno=d.deptno;
+
+4. List all the Grade2 and Grade 3 emps
+select * 
+from emp e 
+where e.empno in (select e.empno from emp e ,salgrade s 
+where e.sal between s.losal and s.hisal and s.grade in(2,3));
+
+or
+
+select * 
+from emp e ,salgrade s 
+where e.sal between s.losal and s.hisal 
+and s.grade in (2,3);
+
+5. Display all Grade 4,5 Analyst and Manager
+select * 
+from emp e, salgrade s 
+where e.sal between s.losal and s.hisal and s.grade in (4,5) and 
+e.job in ('MANAGER','ANALYST');
+
+6. List all the Grade2 and Grade 3 emps who belong from the Chicago
+select * 
+from emp e, salgrade s, dept d
+where e.sal between s.losal and s.hisal and s.grade in (2,3) and 
+d.loc='CHICAGO';
+
+7. Find out the mgr who lives in DALLAS and belong from grade 3 and 4
+select * 
+from emp e, salgrade s, dept d
+where e.sal between s.losal and s.hisal and s.grade in (3,4) and 
+d.loc='DALLAS';
+
+8. Find out the grade of all mgrs
+select s.grade,e.ename 
+from emp e,salgrade s 
+where e.sal between s.losal and s.hisal;

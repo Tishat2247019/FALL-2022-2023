@@ -1,0 +1,36 @@
+                                       
+                     Name : Sufian Tanzid
+                    
+                       
+
+
+
+1. select current_date as "Date" from dual
+
+2. select employee_id,first_name,salary,trunc((salary+(salary+.15))) as "new salary" from employees
+
+3. select employee_id,first_name,salary, round((salary+salary*0.15),0) "new salary",round((salary+salary*0.15),0) - salary "Increase" from employees
+
+4. select last_name, round(months_between(sysdate,hire_date),0) Months_worked from employees order by 2;
+
+5. select first_name||' earns $'||salary||' monthly but wants $'||salary*3 "Dream Salary" from employees
+
+6. select initcap(First_name) "Name", length(First_name) "Length of Name" from employees where First_name like 'J%' or First_name like 'A%' or First_name like 'M%' order by First_name;
+
+7. select first_name, (commission_pct) as comminfo from employees where commission_pct is null
+
+8. select distinct first_name,trunc((sysdate-hire_date)) from employees
+
+9. select first_name,hire_date from employees where (hire_date) like'%81'
+
+10. select distinct first_name,round((sysdate-hire_date)/7,2) from employees
+
+11. select department_id, round(salary/30) daily_salary from employees
+
+12. select mod(salary,commission_pct) from employees where job_id='SA%'
+
+13. select first_name,round(salary/300) as Salary from employees where First_name in('Steven','Neena')
+
+14. select first_name||department_id  from employees
+
+15. select lower(first_name) from employees

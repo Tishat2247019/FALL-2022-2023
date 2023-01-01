@@ -1,0 +1,87 @@
+1.select first_name,salary
+from employees
+where salary>(select salary
+from employees
+where employee_id=103)
+
+2.select department_id,department_name
+from departments 
+where location_id=(select location_id
+from departments
+where department_id=90)
+
+3.select last_name,hire_date
+from employees
+where hire_date>all(select hire_date
+from employees
+where employee_id=101)
+
+4.select first_name,last_name,department_id
+from employees
+where department_id=(select department_id
+from departments
+where department_name='Sales')
+
+5.select department_id,department_name 
+from departments
+where location_id=(select location_id
+from locations
+where city='Toronto')
+
+
+6.select first_name,salary,department_id
+from employees
+where job_id=(select job_id 
+from employees
+where employee_id='124')
+
+7.select first_name,salary,department_id
+from employees 
+where salary>(select round(avg(salary))
+from employees)
+
+8.select first_name,salary,department_id
+from employees
+where salary in (select salary
+from employees
+where department_id='20') or salary in (select salary
+from employees
+where department_id='20')
+
+9.select first_name,salary,department_id
+from employees
+where salary>(select max(salary)
+from employees
+where department_id='50')
+
+10.select first_name,salary,department_id
+from employees
+where salary>(select min(salary)
+from employees
+where department_id='60')
+
+11.select first_name,salary,department_id
+from employees
+where salary<(select min(salary)
+from employees
+where department_id='90')
+
+12.select first_name,salary,department_id
+from employees
+where department_id in(
+select department_id
+from departments
+where location_id=(
+select location_id
+from locations
+where city like 'Seattle'))
+
+13.select first_name, salary, department_id
+from employees
+where salary <
+(select AVG(salary)
+from employees
+where department_id IN
+(select department_id
+from employees
+where first_name = 'Kevin'));

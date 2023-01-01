@@ -1,0 +1,87 @@
+1.
+Select * 
+From emp
+where Sal >All( Select Sal From emp
+where job='MANAGER')
+
+2.
+Select * 
+From emp
+where Sal >Any(Select Sal From emp
+where job='MANAGER')
+
+3.
+Select EMPNO,JOB,SALFROM EMP WHERE JOB='ANALYST' AND SAL >ANY (Select Sal From emp
+where job='MANAGER');
+
+4.
+Select * from emp
+where deptno in (Select deptno from dept where loc='DALLAS');
+
+5.
+Select DNAME,LOC FROM DEPT WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE MGR IN (SELECT EMPNO FROM EMP WHERE ENAME='CLARK'));
+
+6.
+Select DEPT.* FROM DEPT, EMP WHERE JOB='MANAGER';
+
+
+7.
+
+Select *
+FROM EMP 
+WHERE sal=(select max(sal) from emp);
+
+8.
+<(seclect mac(sal)
+from epm
+where sal<(select max(sal)
+from emp));
+
+9.
+
+<(seclect mac(sal)
+from epm
+where sal<(select max(sal)
+from epm
+where sal<(select max(sal)
+from emp));
+
+10.
+
+Select ENAME,DNAME 
+FROM EMP,DEPT
+WHERE EMP.DEPTNO=DEPT.DEPTNO
+                AND JOB IN('MANAGER','CLERK') 
+                AND DNAME IN('MARKETING','ACCOUNTING');
+
+11.
+
+Select ENAME,JOB 
+FROM EMP,DEPT 
+WHERE EMP.DEPTNO=DEPT.DEPTNO AND JOB='SALESMAN' AND DNAME<>'DALLAS';
+
+12.
+
+Select * 
+FROM EMP 
+WHERE JOB = (SELECT JOB 
+             FROM EMP 
+             WHERE ENAME='SCOTT');
+13.
+Select * FROM EMP WHERE SAL = (SELECT SAL FROM EMP WHERE ENAME = 'SMITH');
+
+14.
+select*
+from emp where deptno= (select deptno from dept where dname ='MARKETING')
+and to char (hiredate, 'dy') not in ('Fri','Sat');
+
+15.
+Select empno, ename, deptno
+FROM emp e
+WHERE sal > (SELECT AVG(sal)
+FROM emp e1
+WHERE e.deptno = e1.deptno
+GROUP BY deptno)
+ORDER BY deptno;
+
+

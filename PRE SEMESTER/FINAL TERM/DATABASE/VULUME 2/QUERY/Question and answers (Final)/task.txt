@@ -1,0 +1,15 @@
+
+                   Name : Sufian Tanzid
+
+
+1.  select first_name from employees where department_id IN (select department_id from departments where location_id = (select location_id from locations where city = 'London'))
+2.  select e.first_name from employees e,employees m where e.manager_id=m.employee_id and e.hire_date<(select hire_date from employees where manager_id=employee_id)
+4.  select e.first_name,e.last_name,e.department_id,d.department_name from employees e,departments d where e.department_id = d.department_id
+5.  select e.first_name,e.last_name,e.department_id,d.department_name,l.city,l.state_province from employees e,departments d,locations l where l.location_id=d.department_id and d.department_id=e.department_id
+6.  select e.first_name,e.last_name,e.salary,j.job_title from employees e,jobs j where e.job_id=j.job_id
+7.  select e.first_name,e.last_name,e.department_id,d.department_name from employees e,departments d where e.department_id in(80,40)
+8.  select e.first_name,e.last_name,e.department_id,l.city,l.state_province from employees e, departments d,locations l where l.location_id=d.department_id and d.department_id=e.department_id and e.first_name like 'z%'
+9.  select e.first_name,e.last_name,e.salary from employees e,employees s where e.salary < s.salary and s.employee_id = 182
+10. select e.first_name as employee_name,m.first_name as manager_name from employees e,employees m where e.manager_id=m.employee_id
+11. select d.department_name,l.city,l.state_province from departments d,locations l where d.location_id = l.location_id
+12. select e.first_name,e.last_name,e.department_id,d.department_name from employees e,departments d where e.department_id(+)=d.department_id

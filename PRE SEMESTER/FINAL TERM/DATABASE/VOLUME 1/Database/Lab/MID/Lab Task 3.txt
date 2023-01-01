@@ -1,0 +1,60 @@
+01.Write a query to display the current date. Label the column Date.
+ 
+ select sysdate as "Date"
+from dual;
+
+02.Display the employee number, name, salary, and salary increase by 15% expressed as a whole number.
+Label the column New Salary.
+
+ select empno,ename,sal, 
+round(sal+sal*0.15) "New Salary"
+from emp;
+
+03.Modify your previous query to add a column that will subtract the old salary from the new salary.
+ Label the column Increase. Rerun your query.
+
+ select empno,ename,sal, 
+round(sal+sal*0.15) "New Salary",
+round(sal+sal*0.15)-sal "Increase"
+from emp;
+
+04.Display the employee’s name, hire date, and salary review date, which is the first Monday after six months of service.
+ Label the column REVIEW. Format the dates to appear in the format
+similar to “Sunday, the Seventh of September, 1981.”
+
+ select ename,hiredate,
+to_char(next_day(add_months(hiredate,6),'MONDAY'),'Day,"The "ddspth "of" month yyyy') review
+from emp;
+
+05.For each employee display the employee name and calculate the number of months between today and the date the employee was hired.
+ Label the column MONTHS_WORKED. Order your results by the number of months employed.
+ Round the number of months up to the closest whole number.
+
+ select ename,round(months_between(sysdate,hiredate)) Months_Worked
+from emp
+order by Months_Worked;
+
+06.Write a query that produces the following for each employee: <employee name> earns <salary> monthly but wants <3 times salary>. Label the column Dream Salaries.
+
+ select ename||' earns '|| sal ||' monthly but wants '|| sal*3 "Dream Salaries"
+from emp;
+
+07.Write a query that will display the employee’s name with the first letter capitalized and all other letters lowercase and the length of their name,
+ for all employees whose name starts with J, A, or M. Give each column an appropriate label.
+
+  select initcap(ename) "Name",
+length(ename) "Length of Name"
+from emp
+where ename like 'J%' or ename like 'A%' or ename like 'M%';
+
+08.Create a query that will display the employee name and commission amount. If the employee does not earn commission, 
+put “No Commission.” Label the column COMM.
+
+  select ename,nvl(to_char(comm),'No Commission') comm
+from emp;
+
+09.Create a query that displays the employees’ names and indicates the amounts of their salaries through asterisks.
+ Each asterisk signifies a hundred dollars. Sort the data in descending order of salary. Label the column EMPLOYEE_AND_THEIR_SALARIES.
+
+  select ename,lpad(sal,6,'$'),(sal*12) AS "Employees and their salaries" from 
+emp  order by sal desc;

@@ -1,0 +1,22 @@
+1. create view EMP_VU 
+as select empno,ename as "EMPLOYEE",deptno
+from emp;
+
+2. select *
+from emp_vu;
+
+3. select employee,deptno
+from emp_vu;
+
+4. create view DEPT20
+as select empno as "Employee_Id",ename as "Employee", deptno as "Department_Id"
+from emp 
+where deptno=20
+with check option constraint AA;
+
+5. create view SALARY_VU
+as select e.ename as "Employee", d.dname as "Department",e.sal as "Salary",s.grade as "Grade"
+from emp e,dept d,salgrade s
+where e.deptno=d.deptno
+and e.sal between s.losal and s.hisal;
+

@@ -1,0 +1,19 @@
+1. select empno,ename,deptno
+from emp
+where lower(ename)='blake';
+
+2. select ename,length(ename),job,length(job)
+from emp;
+
+3. select deptno,round(sal)
+from emp;
+
+4. select ename,round((sysdate-hiredate)/7)
+from emp;
+
+5. select ename,hiredate
+from emp
+where hiredate like '%-81';
+
+6. select ename,round((sysdate-hiredate)/30)
+from emp;

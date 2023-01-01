@@ -1,0 +1,96 @@
+                           NAME : RAIHAN-A-ZANNAT SUSAN 
+                           ID: 19-40624-1
+                            LAB SUBMISSION 
+
+       1.Display all the employees who are earning more than all the managers.
+select ename,sal
+from emp
+where sal>all
+             (select sal
+              from emp
+              where job='MANAGER');
+2.Display all the employees who are earning more than any of the managers.
+select ename,sal
+from emp
+where sal>any
+             (select sal
+              from emp
+              where job='MANAGER');
+3.Select employee number, job & salaries of all the Analysts who are earning more than any of the managers.
+select empno,job,sal
+from emp
+where sal>any
+            (select sal
+             from emp
+             where job='MANAGER')
+AND job='ANALYST';
+4.Select all the employees who work in DALLAS
+select ename,deptno
+from emp
+where deptno=(select deptno
+              from dept
+              where loc='DALLAS');
+5.Select department name & location of all the employees working for CLARK.
+select dname,loc
+from dept
+where deptno IN(select deptno
+              from emp
+              where job='CLERK');
+6.Select all the departmental information for all the managers
+select *
+from dept
+where deptno=any
+               (select deptno
+               from emp
+               where job='MANAGER');
+
+7.Display the first maximum salary.
+select max(sal)
+from emp;
+8.Display the second maximum salary.
+select max(sal)
+from emp
+where sal<(select max(sal)
+           from emp);
+9.Display the third maximum salary.
+select max(sal)
+from emp
+where sal<(select max(sal)
+           from emp
+           where sal<(select max(sal)
+                      from emp));
+10.Display all the managers & clerks who work in Accounts and 
+select *
+from emp
+where job IN('MANAGER','CLERK')
+AND deptno=(select deptno
+            from dept
+            where dname IN('ACCOUNTS','MARKETING'));
+11.Display all the salesmen who are not located at DALLAS.
+select *
+from emp
+where job='SALESMEN'
+AND deptno=(select deptno
+            from dept
+            where loc<>'DALLAS');
+12.Get all the employees who work in the same departments as of SCOTT.
+select *
+from emp
+where deptno=(select deptno
+              from emp
+              where ename='SCOTT')
+AND ename<>'SCOTT';
+13.Select all the employees who are earning same as SMITH.
+select *
+from emp
+where sal=(select sal
+              from emp
+              where ename='SMITH')
+AND ename<>'SMITH';
+14.Display all the employees who are getting some commission in marketing department where the employees have joined only on weekdays.
+15.Display all the employees who are getting more than the average salaries of all the employees.
+select *
+from emp
+where sal>all
+            (select avg(sal)
+             from emp);

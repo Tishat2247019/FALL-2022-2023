@@ -1,0 +1,60 @@
+1. select *
+from emp
+where comm>sal;
+
+2.select ename,job
+from emp
+order by job; 
+
+3. select *
+from emp
+where (sal/30)>100;
+
+4.select ename
+from emp
+where ename like 'S _ _ _ _ _';
+
+5.select ename,job,sal
+from emp
+where job NOT IN ('MANAGER','PRESIDENT')
+ORDER BY sal;
+
+6.select *
+from emp
+where sal>comm;
+
+7.select sal,job
+from emp
+where sal>950
+and job='SALESMAN'
+or job='PRESIDENT';
+
+8.select distinct deptno
+from emp;
+
+9.select ename || ' '||'go'||' '||'salary'||' '||'$'||sal
+as "Information"
+from emp;
+
+10.select distinct empno
+from emp;
+
+11.select sal*12 AS "Annual Salary"
+from emp;
+
+12.select ename,sal,job
+from emp
+where ename like '%R';
+
+13.select *
+from emp
+where job='MANAGER'
+OR job='ANALYST';
+
+14.select job,deptno
+from emp
+where deptno=20;
+
+15.select *
+from emp
+order by deptno;

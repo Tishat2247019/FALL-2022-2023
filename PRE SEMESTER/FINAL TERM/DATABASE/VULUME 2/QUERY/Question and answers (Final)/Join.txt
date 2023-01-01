@@ -1,0 +1,87 @@
+1. select e.ename,e.job 
+from emp e,dept d 
+where e.job IN('CLERK','MANAGER') and d.dname IN('ACCOUNTING','SALES') 
+and e.deptno=d.deptno;
+
+2. select e.ename,e.job 
+from emp e,dept d 
+where e.job='SALESMAN' and d.loc<>'DALLAS' and
+e.deptno=d.deptno;
+
+3. select d.deptno,d.loc
+from emp e,dept d,emp w
+where w.ename='CLARK'
+and e.deptno=d.deptno
+and w.empno=e.mgr;
+
+4. select d.* 
+from dept d,emp e 
+where e.job='MANAGER' 
+and e.deptno=d.deptno;
+
+5. select e.ename 
+from emp e,dept d 
+where d.loc='DALLAS' 
+and e.deptno=d.deptno;
+
+6. delete from dept 
+where deptno not in(select deptno from emp)
+
+7. select e.*
+from emp e,emp w
+where w.ename='SCOTT' and e.ename!='SCOTT'
+and w.deptno=e.deptno;
+
+8. select e.* 
+from emp e,emp w 
+where e.hiredate<w.hiredate
+and e.mgr=w.empno;
+
+9. select e.ename
+from emp e, emp w
+where e.sal>w.sal
+and e.mgr=w.empno;
+
+10. select e.*
+from emp e,emp w
+where e.sal=w.sal
+and e.ename!=w.ename;
+
+11. select e.* 
+from emp e,emp w 
+where w.ename='SMITH' and e.ename!='SMITH'
+and e.sal=w.sal;
+
+12. select e.*,s.grade 
+from emp e,salgrade s 
+where e.sal between s.losal and s.hisal;
+---------------------------------------------
+---------------------------------------------
+
+1. select e.ename,d.dname,d.deptno
+from emp e,dept d
+where e.deptno=d.deptno;
+
+2. select distinct job,loc
+from emp e,dept d
+where e.deptno=30
+and e.deptno=d.deptno;
+
+3. select e.ename,d.dname,d.loc
+from emp e,dept d
+where e.comm is not null
+and e.deptno=d.deptno;
+
+4. select e.ename,d.dname
+from emp e, dept d
+where e.ename like '%A%'
+and e.deptno=d.deptno;
+
+5. select e.ename,e.job,d.deptno,d.dname
+from emp e,dept d
+where d.loc='DALLAS'
+and e.deptno=d.deptno;
+
+6. select w.ename as "EMPLOYEE",w.empno as "EMP#", m.ename as "MANAGER",m.empno as "MGR#"
+from emp w,emp m
+where w.mgr=m.empno;

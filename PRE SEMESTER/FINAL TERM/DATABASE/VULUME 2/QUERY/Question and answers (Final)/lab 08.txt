@@ -1,0 +1,16 @@
+1.Find average, maximum, minimum salary of the employees.
+
+select round(avg(sal)) "Average salary",    max(sal) "Maximum Salary",     min(sal) "Minimum Salary"
+from emp;
+
+2.Find average, maximum, minimum salary of the employees according to department number.
+
+select deptno,     round(avg(sal))      "Average salary",    max(sal) "Maximum Salary",  min(sal) "Minimum Salary"
+from emp
+group by deptno;
+
+3.Find average, maximum, minimum salary of the employees according to job category.
+
+select job, round(avg(sal)) "Average salary", max(sal) "Maximum Salary",min(sal) "Minimum Salary"
+from emp
+group by job;

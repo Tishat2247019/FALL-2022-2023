@@ -1,0 +1,25 @@
+                                     
+                            Name : Sufian Tanzid
+                            
+                             
+
+
+
+1.  select first_name, salary from employees where salary > (select salary from employees where employee_id=103)
+2.  select department_id,department_name from departments where location_id=(select location_id from departments where department_id=90)
+3.  select last_name,hire_date from employees where hire_date>(select hire_date from employees where employee_id=101)
+4.  select first_name,last_name,department_id from employees where job_id like'IT%'
+5.  select  department_id,department_name from departments where location_id in(select location_id from locations where city='Toronto')
+6.  select first_name,salary,department_id from employees where department_id=(select department_id from employees where employee_id=124)
+7.  select first_name,salary,department_id from employees where salary>(select avg(salary) from employees)
+8.  select first_name, salary,department_id from employees where salary in (select salary from employees where department_id=20)
+9.  select first_name,salary,department_id from employees where salary>all(select max(salary) from employees where department_id=50)
+10. select first_name, salary, department_id from employees where salary >all(select salary from employees where department_id =60)
+11. select first_name, salary, department_id from employees where salary <all(select salary from employees where department_id =90)
+12. select first_name,salary,department_id from employees where department_id in (select department_id from departments where location_id=1700)
+13. select first_name,salary,department_id from employees where salary<(select avg(salary) from employees) and department_id in(select department_id from employees where first_name='Kevin')
+
+
+
+
+
